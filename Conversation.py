@@ -7,3 +7,5 @@ while(text!='1'):
     print text
     if(text==1):
         print "while should exit"
+
+
