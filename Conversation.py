@@ -4,8 +4,6 @@ import watson_developer_cloud
 
 data = json.load(open('secrets.json'))
 
-print(data)
-
 
 assistant = watson_developer_cloud.AssistantV1(
     username=data['username'],
@@ -13,18 +11,12 @@ assistant = watson_developer_cloud.AssistantV1(
     version=data['version']
 )
 
+text = 0
+workSpaceId = 'e725815f-7f7e-40ca-a9eb-bff8ccafe47e'
 
-
-
-text=0
-workSpaceId='e725815f-7f7e-40ca-a9eb-bff8ccafe47e'
-
-while(text!='1'):
-    if (text == 1):
-        print("while should exit")
-        break
+while text != '1':
     print("To exit press 1")
-    text=input("Q: ")
+    text = input("Q: ")
     response = assistant.message(
         workspace_id=workSpaceId,
         input={
@@ -33,4 +25,6 @@ while(text!='1'):
     )
     print(json.dumps(response, indent=2))
 
+    if text == 1:
+        print("while should exit")
 
