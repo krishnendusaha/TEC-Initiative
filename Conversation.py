@@ -2,13 +2,13 @@ import json
 import watson_developer_cloud
 
 
-data = json.load(open('secrets.json'))
+secrets = json.load(open('secrets.json'))
 
 
 assistant = watson_developer_cloud.AssistantV1(
-    username=data['username'],
-    password=data['password'],
-    version=data['version']
+    username=secrets['username'],
+    password=secrets['password'],
+    version=secrets['version']
 )
 
 text = 0
